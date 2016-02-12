@@ -1,0 +1,10 @@
+
+<div id="posts">
+
+  <% @recent_tweets.each do |tweet| %>
+  <h3><%= tweet.user.name %>:</h3>
+  <%= tweet.post %>
+  <hr>
+  <% end %>
+
+</div>
