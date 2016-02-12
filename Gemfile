@@ -1,10 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'bcrypt'
-gem 'hirb'
-gem 'awesome_print'
-
-
 # PostgreSQL driver
 gem 'pg'
 
@@ -20,7 +15,6 @@ gem 'rake'
 gem 'shotgun'
 
 group :test do
-
   gem 'shoulda-matchers'
   gem 'rack-test'
   gem 'rspec', '~>3.0'

@@ -15,9 +15,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.0)
-    awesome_print (1.6.1)
     backports (3.6.4)
-    bcrypt (3.1.10)
     builder (3.2.2)
     capybara (2.4.4)
       mime-types (>= 1.16)
@@ -30,7 +28,6 @@ GEM
       activesupport (>= 3.0.0)
     faker (1.4.3)
       i18n (~> 0.5)
-    hirb (0.7.3)
     i18n (0.7.0)
     json (1.8.2)
     mime-types (2.4.3)
@@ -85,22 +82,16 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord (~> 4.2.0)
-  activesupport (~> 4.2.0)
-  awesome_print
-  bcrypt
+  activerecord (~> 4.1)
+  activesupport (~> 4.1)
   capybara
   factory_girl
   faker
-  hirb
   pg
   rack-test
   rake
-  rspec (~> 3.0)
+  rspec
   shotgun
   shoulda-matchers
   sinatra
   sinatra-contrib
-
-BUNDLED WITH
-   1.11.2
