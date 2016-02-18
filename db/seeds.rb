@@ -62,6 +62,7 @@ Vote.create(
     email: Faker::Internet.email,
     password: '1234',
     username: "user#{rand(55)}"
+
   )
   user.save
 end
