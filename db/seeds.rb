@@ -55,25 +55,27 @@ Vote.create(
 # rando set
 # -------------
 
-5.times do |i|
+10.times do |i|
   user = User.new(
     first_name: Faker::Name.name ,
     last_name: Faker::Address.state,
     email: Faker::Internet.email,
-    password: '1234'
+    password: '1234',
+    username: "user#{rand(55)}"
+
   )
   user.save
 end
 
-10.times do |i|
+30.times do |i|
   Question.create(
-    user_id: (rand(6) + 1),
+    user_id: (rand(11) + 1),
     title: Faker::Hacker.ingverb.capitalize + ' ' + Faker::Hacker.adjective + ' ' + Faker::Hacker.noun,
     body: Faker::Lorem.paragraph + "?"
   )
 end
 
-10.times do |i|
+20.times do |i|
 Answer.create(
   user_id: (rand(6) + 1),
   question_id: (i + 1),
