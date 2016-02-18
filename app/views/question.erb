@@ -1,0 +1,41 @@
+<div class="question">
+  <h2><%= @question.title %></h2>
+  <% user_id = @question.user_id %>
+  <% user = User.find(user_id) %>
+  <p class="username"><%= user.email %></p>
+
+  <p><%= @question.body%></p>
+
+  <form id='question_vote' class="vote" action="/questions/<%=@question.id%>" method='post'>
+    <button class="upvote" type="submit">Up Vote</button>
+    <button class='downvote' type='submit'>Down vote</button>
+  </form>
+  <div class='comments'>
+    <% @question.comments.each do |comment|%>
+    <% user_id = comment.user_id %>
+    <% user = User.find(user_id) %>
+    <p><%= comment.body %></p>
+    <p class="username"><%= user.email %></p>
+    <%end%>
+  </div>
+</div>
+
+
+<div class='answer'>
+  <% @question.answers.each do |answer|%>
+  <% user_id = answer.user_id %>
+  <% user = User.find(user_id) %>
+  <p><%= answer.body %></p>
+  <p class="username"><%= user.email %></p>
+  <div class='comments'>
+    <% answer.comments.each do |comment|%>
+    <% user_id = comment.user_id %>
+    <% user = User.find(user_id) %>
+    <p><%= comment.body %></p>
+    <p class="username"><%= user.email %></p>
+    <%end%>
+  </div>
+  <%end%>
+
+</div>
+
