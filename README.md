@@ -1,7 +1,7 @@
-Team name: Curious Squirrels
-Team members: Peter Lowe
-              Don Lang
-              Amaar Fazlani
+Team name: Curious Squirrels,
+Team members: Peter Lowe,
+              Don Lang,
+              Amaar Fazlani,
 
 ##User Stories
 MVP:
