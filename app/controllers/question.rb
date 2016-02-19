@@ -6,7 +6,7 @@ end
 get '/questions/:id' do
   @question = Question.find(params[:id])
 
-  erb :question
+  erb :'questions/question'
 end
 
 post "/questions/:id/votes/new" do

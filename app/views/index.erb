@@ -1,8 +1,9 @@
 <div class="page-header">
   <h1> Welcome to Curious Squirrels Overflow </h1>
 </div>
-
-<h3> <a href="users/:id">Visit Your Profile</a></h3>
+<% if session[:user_id] %>
+  <h3><a href="users/:id">Visit Your Profile</a></h3>
+<% end %>
 
 <div id='questions-list'>
   <%@questions.each do |each_question| %>

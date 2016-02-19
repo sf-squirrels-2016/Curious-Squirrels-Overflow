@@ -1,0 +1,76 @@
+<div class="container">
+  <div class="question display-block medium-heigh full-width round-corners div-shadow">
+    <div class="panel-default">
+    <div class="panel-body">
+      <div class='page-header'>
+        <h2><%= @question.title %></h2>
+      </div>
+
+      <% user_id = @question.user_id %>
+      <% user = User.find(user_id) %>
+
+
+      <p class="username"><%= user.username %></p>
+
+      <div class="question-body"><%= @question.body%></div>
+
+      <form id='question_vote_up' class="up_vote" action="/questions/<%=@question.id%>/votes/new" method='post'>
+        <button class="upvote">Up vote</button>
+        <input type="hidden" name='up' value="true">
+      </form>
+
+      <span class="badge"><%= tally(@question.votes) %></span>
+
+      <form id='question_vote_down' class="down_vote" action="/questions/<%=@question.id%>/votes/new" method='post'>
+        <button class='downvote'>Down vote</button>
+        <input type="hidden" name='up' value="false">
+      </form>
+    </div >
+
+      <div class='comments'>
+        <% @question.comments.each do |comment|%>
+        <% user_id = comment.user_id %>
+        <% user = User.find(user_id) %>
+        <p><%= comment.body %></p>
+        <p class="username"><%= user.username %></p>
+        <%end%>
+      </div>
+
+
+    </div><!-- pannel body -->
+  </div><!-- question -->
+
+
+  <h3 id="answer_count"><%= @question.answers.count %> Answers</h3>
+
+  <div class='answer'>
+    <% @question.answers.each do |answer|%>
+    <% user_id = answer.user_id %>
+    <% user = User.find(user_id) %>
+
+    <div class= "answer-body"><%= answer.body %></div>
+    <p class="username"><%= user.username %></p>
+
+    <form id='answer_vote_up' class="up_vote" action="/questions/<%=@question.id%>/answers/<%=answer.id%>/votes/new" method='post'>
+      <button class="upvote">Up Vote</button>
+      <input type="hidden" name='up' value="true">
+    </form>
+    <span class="badge"><%= tally(answer.votes) %></span>
+    <form id='answer_vote_down' class='down_vote' action="/questions/<%=@question.id%>/answers/<%=answer.id%>/votes/new" method='post'>
+      <button class='downvote'>Down vote</button>
+      <input type="hidden" name='up' value="false">
+    </form>
+
+    <div class='comments'>
+      <% answer.comments.each do |comment|%>
+      <% user_id = comment.user_id %>
+      <% user = User.find(user_id) %>
+      <p><%= comment.body %></p>
+      <p class="username"><%= user.email %></p>
+      <%end%>
+    </div>
+    <%end%>
+
+  </div><!-- answer -->
+</div> <!-- Container -->
+
