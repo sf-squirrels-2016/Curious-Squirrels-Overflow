@@ -1,17 +1,20 @@
 <div id="question<%question.id%>" class="display-block medium-heigh full-width round-corners div-shadow">
-
-    <h3 class="padding-top-small"><a href="/questions/<%= question.id%>" class="padding-left-medium"><%= question.title %></a></h3>
-  <div id="votes-" class="float-left text-center padding-small">
-    <p><%= (question.votes.length) %></p>
-    <p>votes</p>
-  </div>
-  <div id="answers-" class="float-left text-center padding-small">
-    <p><%= question.answers.length %></p>
-    <p>answers</p>
-  </div>
-  <div id="vote-counts-" class="float-left text-center padding-small">
-    <p><%= rand(1..50) %></p>
-    <p>counts</p>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div id="votes-" class="display-inline-block float-left text-center padding-small">
+       <span class="badge"><%= (question.votes.length) %></span>
+        <p>votes</p>
+      </div>
+      <div id="answers-" class="display-inline-block float-left text-center padding-small">
+        <span class="badge"><%= question.answers.length %></span>
+        <p>answers</p>
+      </div>
+      <div id="views-" class="display-inline-block float-left text-center padding-small">
+        <span class="badge"><%= rand(1..50) %></span>
+        <p>views</p>
+      </div>
+      <h3 class="question-title"><a href="/questions/<%= question.id%>" class="padding-left-medium"><%= question.title %></a></h3>
+    </div>
   </div>
 
 </div>
