@@ -17,8 +17,9 @@ end
 post '/users/:id/questions' do
   @question = Question.create(user_id: params[:id], title: params[:title], body: params[:body])
   p @question
-  # redirect "/users/#{params[:id]}"
-  erb :'/questions/new'
+ redirect "/users/#{params[:id]}"
+ # erb :"/questions/new"
+
 end
 
 post "/questions/:id/votes/new" do
