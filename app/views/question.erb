@@ -6,11 +6,18 @@
 
   <p><%= @question.body%></p>
 
-  <form id='question_vote' class="vote" action="/questions/<%=@question.id%>/votes/new" method='post'>
-    <button class="upvote" type="submit">Up Vote</button>
-    <p><%= @question.votes.count %></p>
-    <button class='downvote' type='submit'>Down vote</button>
+  <form id='question_vote_up' class="up_vote" action="/questions/<%=@question.id%>/votes/new" method='post'>
+    <button class="upvote">Up Vote</button>
+    <input type="hidden" name='up' value="true">
   </form>
+
+    <p><%= @question.votes.count %></p>
+
+    <form id='question_vote_down' class="down_vote" action="/questions/<%=@question.id%>/votes/new" method='post'>
+    <button class='downvote'>Down vote</button>
+    <input type="hidden" name='up' value="false">
+  </form>
+
   <div class='comments'>
     <% @question.comments.each do |comment|%>
     <% user_id = comment.user_id %>
@@ -23,6 +30,7 @@
 
 
   <h3 id="answer_count"><%= @question.answers.count %> Answers</h3>
+
 <div class='answer'>
   <% @question.answers.each do |answer|%>
   <% user_id = answer.user_id %>
@@ -30,10 +38,14 @@
   <p><%= answer.body %></p>
   <p class="username"><%= user.username %></p>
 
-  <form id='answer_vote' class="vote" action="/questions/<%=@question.id%>/answers/<%=answer.id%>/votes/new" method='post'>
-    <button class="upvote" type="submit">Up Vote</button>
+  <form id='answer_vote_up' class="up_vote" action="/questions/<%=@question.id%>/answers/<%=answer.id%>/votes/new" method='post'>
+    <button class="upvote">Up Vote</button>
+    <input type="hidden" name='up' value="true">
+  </form>
     <p><%=answer.votes.count %></p>
-    <button class='downvote' type='submit'>Down vote</button>
+  <form id='answer_vote_down' class='down_vote' action="/questions/<%=@question.id%>/answers/<%=answer.id%>/votes/new" method='post'>
+    <button class='downvote'>Down vote</button>
+    <input type="hidden" name='up' value="false">
   </form>
 
   <div class='comments'>
