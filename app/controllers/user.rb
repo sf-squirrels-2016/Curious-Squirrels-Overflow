@@ -1,6 +1,6 @@
 get '/users/:id' do
   @user = User.find(params[:id])
-  erb :testpage
+  erb :"users/profile"
 end
 
 post '/users' do
