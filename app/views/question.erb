@@ -11,7 +11,7 @@
     <input type="hidden" name='up' value="true">
   </form>
 
-    <p><%= @question.votes.count %></p>
+    <p><%= tally(@question.votes) %></p>
 
     <form id='question_vote_down' class="down_vote" action="/questions/<%=@question.id%>/votes/new" method='post'>
     <button class='downvote'>Down vote</button>
@@ -42,7 +42,7 @@
     <button class="upvote">Up Vote</button>
     <input type="hidden" name='up' value="true">
   </form>
-    <p><%=answer.votes.count %></p>
+    <p><%= tally(answer.votes) %></p>
   <form id='answer_vote_down' class='down_vote' action="/questions/<%=@question.id%>/answers/<%=answer.id%>/votes/new" method='post'>
     <button class='downvote'>Down vote</button>
     <input type="hidden" name='up' value="false">
