@@ -10,3 +10,12 @@ get '/questions/:id' do
   erb :question
 end
 
+
+get '/user/:id/questions/new' do
+  erb :"questions/new"
+
+end
+
+post '/user/:id/questions/new' do
+  "Hello World"
+end
