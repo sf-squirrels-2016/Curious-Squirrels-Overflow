@@ -1,13 +1,12 @@
 <h1> Welcome to Curious Squirrels Overflow </h1>
 
-<% @questions.each do |each_question| %>
-  <%=each_question.title %>
-  <%=each_question.votes.length %> votes
-  <%=each_question.answers.length %> votes
 
-
-
-  <br>
+<div id='questions-list'>
+  <%@questions.each do |each_question| %>
+  <%= erb :"questions/_each_question_partial", layout: false, locals: {
+    question: each_question}%>
   <% end %>
 
 
+
+</div>
