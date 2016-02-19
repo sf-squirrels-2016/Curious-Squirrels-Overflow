@@ -1,12 +1,12 @@
 <h2>New Question</h2>
-<form id='new-question' class="#"  method='post' >
+<form id='new-question' class="#" action ="/users/4/questions" method='post' >
 
-<input class='title' type ='text' action = '/users/4/question'  name ='title' placeholder ="Title">
+<input type ='text' name ='title' placeholder ="Title">
 <br>
-<textarea class ="question_text" type='text' name="content" placeholder="Enter your question ..."></textarea>
-
+<textarea class ="question_text" type='text' name="body" placeholder="Enter your question ..."></textarea>
+<br>
 <input type="submit" >
 </form>
 
 
-<!-- action= "/user/<%#session{:user_id%>/question" -->
+

@@ -10,10 +10,17 @@ get '/questions/:id' do
   erb :question
 end
 
-get '/user/:id/questions/new' do
-  erb :"questions/new"
+get '/users/:id/questions/new' do
+
+  erb :"/questions/new"
 end
 
+post '/users/:id/questions' do
+  @question = Question.create(user_id: params[:id], title: params[:title], body: params[:body])
+  p @question
+  # redirect "/users/#{params[:id]}"
+  erb :'/questions/new'
+end
 
 post "/questions/:id/votes/new" do
   @question = Question.find(params[:id])
