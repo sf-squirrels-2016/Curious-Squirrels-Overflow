@@ -1,5 +1,5 @@
 <h2>New Question</h2>
-<form id='new-question' class="#" action ="/users/4/questions" method='post' >
+<form id='new-question' class="#" action ="/users/<%=session[:user_id]%>/questions" method='post' >
 
 <input type ='text' name ='title' placeholder ="Title">
 <br>
