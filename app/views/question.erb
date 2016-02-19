@@ -1,5 +1,7 @@
 <div class="question">
+  <div class='page-header'>
   <h2><%= @question.title %></h2>
+  </div>
   <% user_id = @question.user_id %>
   <% user = User.find(user_id) %>
   <p class="username"><%= user.username %></p>
