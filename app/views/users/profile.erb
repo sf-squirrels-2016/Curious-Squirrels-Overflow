@@ -1,0 +1,17 @@
+
+
+<h1> Here are all the questions you posted! </h1>
+
+
+<div id='questions-list'>
+<% @user.questions.each do |each_question| %>
+
+  <%= erb :"questions/_each_user_question", layout: false, locals: {question: each_question} %>
+
+
+<%end%>
+
+</div>
+<form action='/logout' method='post'>
+  <button type='submit'>Log Out</button>
+</form>
