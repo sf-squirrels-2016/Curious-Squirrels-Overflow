@@ -1,0 +1,88 @@
+<div class="question">
+  <div class='page-header'>
+  <h2><%= @question.title %></h2>
+  </div>
+  <% user_id = @question.user_id %>
+  <% user = User.find(user_id) %>
+  <p class="username"><%= user.username %></p>
+
+  <p><%= @question.body%></p>
+
+  <form id='question_vote_up' class="up_vote" action="/questions/<%=@question.id%>/votes/new" method='post'>
+    <button class="upvote">Up Vote</button>
+    <input type="hidden" name='up' value="true">
+  </form>
+
+    <p><%= tally(@question.votes) %></p>
+
+    <form id='question_vote_down' class="down_vote" action="/questions/<%=@question.id%>/votes/new" method='post'>
+    <button class='downvote'>Down vote</button>
+    <input type="hidden" name='up' value="false">
+  </form>
+
+
+<form method="POST" action="/questions/<%=@question.id%>/comments">
+    <input type="hidden" name="commentable_id" value="<%= @question.id %>">
+    <input type="hidden" name="commentable_type" value="Question">
+    <textarea name="body"></textarea>
+    <input type="submit" value="Submit Comment">
+</form>
+
+
+     <form id='answer' class="answer" action="/questions/<%=@question.id%>/answers" method='post'>
+
+ <textarea type="textarea" name="body" placeholder="Enter Answer here"></textarea>
+
+     <button class='answer'>Answer</button>
+  </form>
+
+
+  <div id='all_comments'>
+    <% @question.comments.each do |comment|%>
+    <%= erb :"/users/_each_comment_partial", layout: false, locals: {comment: comment} %>
+
+    <%end%>
+
+  </form>
+
+  </div>
+
+
+
+
+  <h3 id="answer_count"><%= @question.answers.count %> Answers</h3>
+
+<div class='answer'>
+  <% @question.answers.each do |answer|%>
+  ---------------------------------------------------------
+  <% user_id = answer.user_id %>
+  <% user = User.find(user_id) %>
+  <p><%= answer.body %></p>
+  <p class="username"><%= user.username %></p>
+
+<br>
+  <form id='answer_vote_up' class="up_vote" action="/questions/<%=@question.id%>/answers/<%=answer.id%>/votes/new" method='post'>
+    <button class="upvote">Up Vote</button>
+    <input type="hidden" name='up' value="true">
+  </form>
+    <p><%= tally(answer.votes) %></p>
+  <form id='answer_vote_down' class='down_vote' action="/questions/<%=@question.id%>/answers/<%=answer.id%>/votes/new" method='post'>
+    <button class='downvote'>Down vote</button>
+    <input type="hidden" name='up' value="false">
+  </form>
+     <form id='comment' class="comment" action="/questions/question_id/comments" method='post'>
+    <button class='comment'>Comment</button>
+
+  <div class='comments'>
+    <% answer.comments.each do |comment|%>
+ -----------------------------------
+    <% user_id = comment.user_id %>
+    <% user = User.find(user_id) %>
+    <p><%= comment.body %></p>
+    <p class="username"><%= user.email %></p>
+    <%end%>
+  </div>
+  <%end%>
+
+</div>
+

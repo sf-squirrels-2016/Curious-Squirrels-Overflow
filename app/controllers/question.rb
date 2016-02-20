@@ -6,7 +6,9 @@ end
 get '/questions/:id' do
   @question = Question.find(params[:id])
 
-  erb :'questions/question'
+
+  erb :"question"
+
 end
 
 get '/users/:id/questions/new' do
@@ -37,4 +39,19 @@ post "/questions/:id/answers/:answer_id/votes/new" do
 
   redirect "/questions/#{params[:id]}"
 
+<<<<<<< HEAD
+=======
 end
+
+post '/questions/:id/comments' do
+  p params[:id]
+  @question = Question.find(params[:id])
+  @comment = Comment.create( user_id: session[:user_id],
+    commentable_id: params[:commentable_id],
+    commentable_type: params[:commentable_type],
+    body: params[:body])
+
+    redirect "/questions/#{@question.id}"
+>>>>>>> 9a779d1f9826deaf7f67e7ee86883ea3458c16d7
+end
+
