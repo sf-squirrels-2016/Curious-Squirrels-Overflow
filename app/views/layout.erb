@@ -38,7 +38,18 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="/">Home<span class="sr-only">(current)</span></a></li>
+        <%if session[:user_id] == nil %>
         <li><a href="/login">Login</a></li>
+        <%end%>
+        <%if session[:user_id]%>
+        <li><a href='/logout'>Logout</a></li>
+        <%end%>
+        <%if session[:user_id]%>
+        <li><a href='/users/<%= session[:user_id]%>'>Profile</a></li>
+        <%end%>
+        <%if session[:user_id]%>
+        <li><a href='/users/:id/questions/new'>Post a Question</a></li>
+        <%end%>
 
         </li>
       </ul>

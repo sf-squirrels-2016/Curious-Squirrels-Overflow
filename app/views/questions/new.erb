@@ -1,12 +1,19 @@
-<h2>New Question</h2>
-<form id='new-question' class="#" action ="/users/<%=session[:user_id]%>/questions" method='post' >
+<div class="panel-default col-sm-6">
+  <h2>New Question</h2>
 
-<input type ='text' name ='title' placeholder ="Title">
-<br>
-<textarea class ="question_text" type='text' name="body" placeholder="Enter your question ..."></textarea>
-<br>
-<input type="submit" >
-</form>
+  <div class="panel-body">
+    <form id='new-question' class="#" action ="/users/<%=session[:user_id]%>/questions" method='post' >
+      <fieldset class="form-group">
+      <input class="form-control" type ='text' name ='title' placeholder ="Title">
+      </fieldset>
+      <fieldset class="form-group">
+      <textarea class ="question_text form-control" type='text' name="body" placeholder="Enter your question ..."></textarea>
+      </fieldset>
+
+      <input class="btn btn-primary" type="submit" >
+    </form>
+  </div>
+</div>
 
 
 

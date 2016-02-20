@@ -1,16 +1,18 @@
-<div class="page-header">
-  <h1> Welcome to Curious Squirrels Overflow </h1>
+
+<div>
+  <div class="page-header col-sm-9
+  ">
+   <h1> Welcome to Curious Squirrels Overflow </h1>
+  </div>
+
+  <img class="squirrel-image col-sm-3"src="http://1.bp.blogspot.com/-bFs945aWW7I/UGz1eTn-HBI/AAAAAAAABDE/scun_ctmn6o/s1600/squirrel.png">
+
+  <h3>Select a Question</h3>
 </div>
-<% if session[:user_id] %>
-  <h3><a href="users/:id">Visit Your Profile</a></h3>
-<% end %>
 
 <div id='questions-list'>
   <%@questions.each do |each_question| %>
-  <%= erb :"questions/_each_question_partial", layout: false, locals: {
+   <%= erb :"questions/_each_question_partial", layout: false, locals: {
     question: each_question}%>
   <% end %>
-
-
-
 </div>

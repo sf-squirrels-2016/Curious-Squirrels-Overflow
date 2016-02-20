@@ -14,6 +14,11 @@ th {
   display: inline-block
 }
 
+.question-body {
+  font-size: 1.5em;
+  margin-left:3em;
+}
+
 .container {
     border-style: none;
 }
@@ -21,6 +26,9 @@ th {
 .comments {
   border-top: 1px solid;
 
+}
+.squirrel-image {
+  width: 20em;
 }
 
 .display-inline-block { display: inline-block; }
