@@ -18,8 +18,8 @@ post '/login' do
  end
 end
 
-post '/logout' do
-  session[:user_id] = nil
+get '/logout' do
+  session.clear
   redirect '/'
 end
 

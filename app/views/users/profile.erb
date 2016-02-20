@@ -8,10 +8,9 @@
 
   <%= erb :"questions/_each_question_partial", layout: false, locals: {question: each_question} %>
 
-
 <%end%>
 
 </div>
 <form action='/logout' method='post'>
-  <button type='submit'>Log Out</button>
+  <button  class="btn btn-primary" type='submit'>Log Out</button>
 </form>

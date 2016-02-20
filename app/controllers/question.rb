@@ -6,7 +6,9 @@ end
 get '/questions/:id' do
   @question = Question.find(params[:id])
 
+
   erb :"question"
+
 end
 
 get '/users/:id/questions/new' do
@@ -48,5 +50,6 @@ post '/questions/:id/comments' do
     body: params[:body])
 
     redirect "/questions/#{@question.id}"
+
 end
 
