@@ -9,14 +9,14 @@
   <p><%= @question.body%></p>
 
   <form id='question_vote_up' class="up_vote" action="/questions/<%=@question.id%>/votes/new" method='post'>
-    <button class="upvote">Up Vote</button>
+    <input type="image" value="submit" src="https://upload.wikimedia.org/wikipedia/commons/0/01/Arrow-up-navmenu.png"/>
     <input type="hidden" name='up' value="true">
   </form>
 
     <p><%= tally(@question.votes) %></p>
 
     <form id='question_vote_down' class="down_vote" action="/questions/<%=@question.id%>/votes/new" method='post'>
-    <button class='downvote'>Down vote</button>
+    <input type="image" value="submit" src="https://upload.wikimedia.org/wikipedia/commons/f/f7/Arrow-down-navmenu.png"/>
     <input type="hidden" name='up' value="false">
   </form>
 
@@ -62,12 +62,12 @@
 
 <br>
   <form id='answer_vote_up' class="up_vote" action="/questions/<%=@question.id%>/answers/<%=answer.id%>/votes/new" method='post'>
-    <button class="upvote">Up Vote</button>
+    <input type="image" value="submit" src="https://upload.wikimedia.org/wikipedia/commons/0/01/Arrow-up-navmenu.png"/>
     <input type="hidden" name='up' value="true">
   </form>
     <p><%= tally(answer.votes) %></p>
   <form id='answer_vote_down' class='down_vote' action="/questions/<%=@question.id%>/answers/<%=answer.id%>/votes/new" method='post'>
-    <button class='downvote'>Down vote</button>
+    <input type="image" value="submit" src="https://upload.wikimedia.org/wikipedia/commons/f/f7/Arrow-down-navmenu.png"/>
     <input type="hidden" name='up' value="false">
   </form>
      <form id='comment' class="comment" action="/questions/question_id/comments" method='post'>

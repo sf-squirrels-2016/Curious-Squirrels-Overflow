@@ -39,8 +39,6 @@ post "/questions/:id/answers/:answer_id/votes/new" do
 
   redirect "/questions/#{params[:id]}"
 
-<<<<<<< HEAD
-=======
 end
 
 post '/questions/:id/comments' do
@@ -52,6 +50,6 @@ post '/questions/:id/comments' do
     body: params[:body])
 
     redirect "/questions/#{@question.id}"
->>>>>>> 9a779d1f9826deaf7f67e7ee86883ea3458c16d7
+
 end
 
