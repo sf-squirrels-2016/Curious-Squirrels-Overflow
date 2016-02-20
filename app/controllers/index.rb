@@ -23,3 +23,7 @@ post '/logout' do
   redirect '/'
 end
 
+get '/session-viewer' do
+session.inspect
+end
+
